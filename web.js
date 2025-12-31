@@ -1,4 +1,3 @@
-// Improved JS: small enhancements and accessibility helpers
 (function(){
   function qs(sel, ctx) { return (ctx||document).querySelector(sel); }
   // Mobile nav toggle
