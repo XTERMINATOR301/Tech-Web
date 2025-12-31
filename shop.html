@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop — Tech Web</title>
+  <link rel="stylesheet" href="web.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <a class="logo" href="index.html">Tech Web</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section style="padding:2rem 0">
+      <h1 style="margin:0 0 0.5rem">Shop</h1>
+      <p style="color:var(--muted);margin:0 0 1rem">Browse our curated selection of hardware and accessories. Use filters to find the right fit for your workflow.</p>
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+        <button class="nav-toggle">Filters</button>
+        <div style="margin-left:auto;color:var(--muted)">Sort: <select style="background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04);padding:0.35rem;border-radius:6px"><option>Featured</option><option>Price: Low to High</option><option>Price: High to Low</option></select></div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="media">Nova Laptop Pro</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Nova Laptop Pro</div>
+              <div style="color:var(--muted);font-size:0.95rem">14" OLED • 16GB • 1TB</div>
+            </div>
+            <div class="price">$1,499</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem">
+            <div style="color:var(--muted)">In stock</div>
+            <div>
+              <button class="btn add-cart" data-product="Nova Laptop Pro">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media">Pulse X2</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Pulse X2 Headset</div>
+              <div style="color:var(--muted);font-size:0.95rem">Noise-cancelling • Hi-Fi</div>
+            </div>
+            <div class="price">$199</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem">
+            <div style="color:var(--muted)">Low stock</div>
+            <div>
+              <button class="btn" style="background:linear-gradient(90deg,var(--accent-3),var(--accent));color:#021826;border:none" data-product="Pulse X2 Headset">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media">Atlas Dock</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Atlas Thunderbolt Dock</div>
+              <div style="color:var(--muted);font-size:0.95rem">USB4 • 90W PD • Dual 4K</div>
+            </div>
+            <div class="price">$249</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem">
+            <div style="color:var(--muted)">Ships in 1-2 days</div>
+            <div>
+              <button class="btn add-cart" data-product="Atlas Dock">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media">Flux Charger</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Flux 65W Charger</div>
+              <div style="color:var(--muted);font-size:0.95rem">GaN • Compact • Fast Charge</div>
+            </div>
+            <div class="price">$59</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem">
+            <div style="color:var(--muted)">In stock</div>
+            <div>
+              <button class="btn add-cart" data-product="Flux 65W Charger">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="padding:2rem 0;color:var(--muted)">
+    <div class="container">© <span id="year"></span> Tech Web — Shop</div>
+  </footer>
+
+  <script src="web.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.add-cart').forEach(btn=>{
+        btn.addEventListener('click', function(){
+          const name = this.dataset.product || 'product';
+          const el = document.createElement('div');
+          el.textContent = name + ' added to cart';
+          Object.assign(el.style,{position:'fixed',right:'1rem',bottom:'1rem',background:'linear-gradient(90deg,var(--accent),var(--accent-2))',color:'#021826',padding:'0.6rem 0.9rem',borderRadius:'8px',zIndex:9999});
+          // use CSS custom properties via computed style fallback
+          document.body.appendChild(el);
+          setTimeout(()=>el.remove(),1800);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

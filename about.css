@@ -1,8 +1,51 @@
 /* About page specific styles */
-:root{--bg:#f8fafc;--text:#0b1220;--muted:#6b7280;--accent:#0ea5ff}
+:root{
+  --bg:#f8fafc;
+  --text:#0b1220;
+  --muted:#6b7280;
+  --accent:#0ea5ff;
+  --accent-2:#7c3aed; /* purple */
+  --accent-3:#06b6d4; /* teal */
+  --soft:#f1f5f9; /* soft panel */
+  --card:#ffffff; /* white card */
+  --bg-spot1: rgba(124,58,237,0.06);
+  --bg-spot2: rgba(6,182,212,0.07);
+  --bg-spot3: rgba(250,130,49,0.04);
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-mid: #eef2ff;
+  --bg-gradient-end: #f3f8ff;
+}
 *{box-sizing:border-box}
 /* Ensure html background is consistent with body to avoid mixed backgrounds */
-html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);min-height:100%;}
+
+html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 55%, var(--bg-gradient-end) 100%);color:var(--text);min-height:100%;}
+
+/* decorative background overlays (stronger, multi-spot, subtle float animation) */
+body::before{content:"";position:fixed;left:-12%;top:-22%;width:68vmax;height:68vmax;background:radial-gradient(circle at 20% 30%,var(--bg-spot1),transparent 26%);pointer-events:none;z-index:0;opacity:1;filter:blur(8px);animation:float-bg 18s ease-in-out infinite}
+body::after{content:"";position:fixed;right:-12%;bottom:-12%;width:56vmax;height:56vmax;background:radial-gradient(circle at 80% 70%,var(--bg-spot2),transparent 20%), radial-gradient(circle at 60% 40%,var(--bg-spot3),transparent 14%);pointer-events:none;z-index:0;filter:blur(6px);animation:float-bg 26s ease-in-out infinite reverse}
+
+@keyframes float-bg{0%{transform:translateY(0) translateX(0) rotate(0deg)}50%{transform:translateY(-3%) translateX(2%) rotate(1deg)}100%{transform:translateY(0) translateX(0) rotate(0deg)}}
+
+/* Slight tinted hero panel to blend with colorful background */
+.about-hero{background-image:linear-gradient(135deg, rgba(124,58,237,0.03), rgba(6,182,212,0.02));padding:2.5rem 0}
+
+/* ensure page content sits above decorative layers */
+.container, article, .about-hero, .site-header, .site-footer{position:relative;z-index:1}
+
+/* Colorful accents for headings, links, avatar and subtle section backgrounds */
+h1,h2,h3{color:var(--text)}
+h1{color:var(--accent-2)}
+h2{color:var(--accent)}
+h3{color:var(--accent-3)}
+
+a{color:var(--accent-2)}
+
+.avatar{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+.muted{color:var(--muted)}
+.section{background:linear-gradient(180deg,rgba(14,165,255,0.03),transparent);border:1px solid rgba(11,18,32,0.04)}
+
+/* Make cards/panels softly tinted white to harmonize with page */
+article{background:var(--card)}
 .container{max-width:900px;margin:0 auto;padding:1.25rem}
 .site-header{padding:1rem 0;border-bottom:1px solid rgba(11,18,32,0.06);background:transparent}
 .logo{font-weight:700;color:var(--text);text-decoration:none}
