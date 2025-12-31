@@ -2,201 +2,185 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Tech-Web</title>
-	<link rel="stylesheet" href="web.css">
-	<link rel="stylesheet" href="about.css">
-	<link rel="stylesheet" href="contact.css">
-	<link rel="icon" href="logo.svg" />
-	<style>
-		/* Home-specific hero and accent overrides (distinct from shop) */
-		.home-hero{
-			min-height:72vh;display:flex;align-items:center;padding:4rem 1.25rem;gap:2rem;position:relative;overflow:hidden;
-			background:linear-gradient(120deg,#ff7a59 0%, #ffb86b 40%, rgba(255,255,255,0.02) 100%);
-			color:#081225;
-		}
-		.home-left{max-width:720px}
-		.home-left h1{font-size:clamp(1.8rem,4.5vw,3.2rem);margin:0 0 0.6rem;color:#0b1220}
-		.home-left p{color:rgba(11,18,32,0.75);margin:0 0 1rem}
-		.home-cta{display:flex;gap:0.75rem}
-		.btn-home{padding:0.75rem 1.1rem;border-radius:12px;font-weight:800;text-decoration:none;display:inline-block}
-		.btn-home-primary{background:linear-gradient(90deg,#ff4d4d,#ff7a59);color:white;border:none}
-		.btn-home-ghost{background:transparent;border:2px solid rgba(11,18,32,0.06);color:rgba(11,18,32,0.9)}
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Tech-Web</title>
+		<link rel="stylesheet" href="web.css">
+		<link rel="stylesheet" href="about.css">
+		<link rel="stylesheet" href="contact.css">
+		<link rel="icon" href="logo.svg" />
+		<style>
+			/* Home-specific hero and accent overrides (distinct from shop) */
+			.home-hero{
+				min-height:72vh;display:flex;align-items:center;padding:4rem 1.25rem;gap:2rem;position:relative;overflow:hidden;
+				background:linear-gradient(120deg,#ff7a59 0%, #ffb86b 40%, rgba(255,255,255,0.02) 100%);
+				color:#081225;
+			}
+			.home-left{max-width:720px}
+			.home-left h1{font-size:clamp(1.8rem,4.5vw,3.2rem);margin:0 0 0.6rem;color:#0b1220}
+			.home-left p{color:rgba(11,18,32,0.75);margin:0 0 1rem}
+			.home-cta{display:flex;gap:0.75rem}
+			.btn-home{padding:0.75rem 1.1rem;border-radius:12px;font-weight:800;text-decoration:none;display:inline-block}
+			.btn-home-primary{background:linear-gradient(90deg,#ff4d4d,#ff7a59);color:white;border:none}
+			.btn-home-ghost{background:transparent;border:2px solid rgba(11,18,32,0.06);color:rgba(11,18,32,0.9)}
 
-		.home-right{flex:1;display:flex;align-items:center;justify-content:center}
-		.promo-card{width:320px;height:220px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,0.6),rgba(255,255,255,0.35));box-shadow:0 18px 40px rgba(3,7,18,0.12);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:1.25rem}
-		.promo-card h3{margin:0;color:#0b1220}
-		.promo-card p{margin:0.4rem 0;color:rgba(11,18,32,0.7)}
-		.promo-card-btn-wrapper{margin-top:0.8rem}
-		.features{display:flex;gap:1rem;margin-top:1.25rem}
-		.feature{background:rgba(255,255,255,0.12);padding:0.65rem 0.9rem;border-radius:10px;color:#fff}
+			.home-right{flex:1;display:flex;align-items:center;justify-content:center}
+			.promo-card{width:320px;height:220px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,0.6),rgba(255,255,255,0.35));box-shadow:0 18px 40px rgba(3,7,18,0.12);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:1.25rem}
+			.promo-card h3{margin:0;color:#0b1220}
+			.features{display:flex;gap:1rem;margin-top:1.25rem}
+			.feature{background:rgba(255,255,255,0.12);padding:0.65rem 0.9rem;border-radius:10px;color:#fff}
 
-		@media(max-width:980px){.home-hero{flex-direction:column;text-align:center}.home-right{order:-1}.home-left{max-width:100%}}
+			@media(max-width:980px){.home-hero{flex-direction:column;text-align:center}.home-right{order:-1}.home-left{max-width:100%}}
 
-		/* Home header: dark theme, white brand text, centered nav like shop */
-		header{display:flex;align-items:center;padding:0.6rem 0}
-		.logo{display:flex;align-items:center;color:var(--text);text-decoration:none}
-		.logo-img{height:40px;border-radius:8px;margin-right:0.5rem}
-		.brand{color:var(--text);font-weight:800;margin-left:0.5rem;font-size:1.05rem}
-		header .primary-nav{display:flex;align-items:center;gap:0.5rem;margin:0 auto}
-		header .primary-nav a{color:var(--text);padding:0.25rem 0.45rem;text-decoration:none}
-		/* larger separators after Home and Shop for clearer grouping */
-		header .primary-nav a[data-page="home"], header .primary-nav a[data-page="products"]{margin-right:1.6rem}
-
-		/* Products section and cards */
-		.products-title{margin:0 0 1rem}
-		.card-info{display:flex;justify-content:space-between;align-items:center}
-		.card-name{font-weight:700}
-		.card-specs{color:var(--muted);font-size:0.95rem}
-		.card-status{color:var(--muted)}
-		.why-choose-section{padding-top:0}
-		.why-choose-title{margin-top:1.5rem}
-		.why-choose-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.75rem}
-		.why-choose-card{background:transparent;padding:1rem;border-radius:10px;color:var(--muted)}
-		.why-choose-card-title{font-weight:800}
-		.footer-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-		.footer-contact{color:var(--muted)}
-		.footer-link{color:var(--muted);text-decoration:underline}
-	</style>
-		</head>
-		<body>
-			<header>
-				<div class="container">
-					<a class="brand" href="index.html"><img src="logo.svg" alt="Tech Web logo" class="logo-img">Tech Web</a>
-				<nav>
-					<button class="nav-toggle" aria-expanded="false">Menu</button>
-					<div id="primary-navigation" class="primary-nav">
-						<a href="index.html" class="active" data-page="home">Home</a>
-						<a href="shop.html" data-page="products">Shop</a>
-						<a href="about.html" data-page="about">About</a>
-						<a href="contact.html" data-page="contact">Contact</a>
-					</div>
-				</nav>
+			/* Home-page header/navbar tweaks: spacing + black text */
+			header .brand, header .primary-nav a, header .nav-toggle{color:#081225}
+			header .primary-nav{display:flex;align-items:center;gap:0.5rem}
+			header .primary-nav a{padding:0.25rem 0.45rem}
+			/* larger separators after Home and About */
+			header .primary-nav a[data-page="home"], header .primary-nav a[data-page="products"]{margin-right:1.6rem}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="brand" href="index.html"><img src="logo.svg" alt="Tech Web logo" class="logo-img">Tech Web</a>
+			<nav>
+				<button class="nav-toggle" aria-expanded="false">Menu</button>
+				<div id="primary-navigation" class="primary-nav">
+					<a href="index.html" class="active" data-page="home">Home</a>
+					<a href="shop.html" data-page="products">Shop</a>
+					<a href="about.html" data-page="about">About</a>
+					<a href="contact.html" data-page="contact">Contact</a>
 				</div>
-			</header>
-		
-			<main>
-				<section class="home-hero" aria-label="Welcome">
-					<div class="container">
-					<div class="home-left">
-						<h1>Tools that help you ship better, faster.</h1>
-						<p>Design-grade hardware and ergonomic software for makers, teams and small studios. Beautifully engineered, responsibly sourced.</p>
-						<div class="home-cta">
-							<a class="btn-home btn-home-primary" href="shop.html">Browse products</a>
-							<a class="btn-home btn-home-ghost" href="about.html">Learn our story</a>
-						</div>
-						<div class="features">
-							<div class="feature">Free 30‑day returns</div>
-							<div class="feature">Global shipping</div>
-							<div class="feature">1yr warranty</div>
-						</div>
+			</nav>
+		</header>
+
+		<main>
+			<section class="home-hero" aria-label="Welcome">
+				<div class="home-left">
+					<h1>Tools that help you ship better, faster.</h1>
+					<p>Design-grade hardware and ergonomic software for makers, teams and small studios. Beautifully engineered, responsibly sourced.</p>
+					<div class="home-cta">
+						<a class="btn-home btn-home-primary" href="shop.html">Browse products</a>
+						<a class="btn-home btn-home-ghost" href="about.html">Learn our story</a>
 					</div>
-					<div class="home-right">
-						<div class="promo-card" aria-hidden="true">
-							<p>Thin, powerful, and built for long-term use.</p>
-								<div class="promo-card-btn-wrapper"><a class="btn-home btn-home-primary" href="#product-nova">Pre-order</a></div>
-							<div style="margin-top:0.8rem"><a class="btn-home btn-home-primary" href="#product-nova">Pre-order</a></div>
-						</div>
+					<div class="features">
+						<div class="feature">Free 30‑day returns</div>
+						<div class="feature">Global shipping</div>
+						<div class="feature">1yr warranty</div>
 					</div>
-				</section>
-				<section id="products" class="products" aria-label="Products">
-					<h2 class="products-title">Featured Products</h2>
-					<h2 style="margin:0 0 1rem">Featured Products</h2>
-					<div class="grid">
-						<article class="card">
-							<div class="card-info">
-								<div>
-									<div class="card-name">Nova Laptop Pro</div>
-									<div class="card-specs">14" OLED • 16GB • 1TB</div>
-								</div>
-								<div class="price">$1,499</div>
-							</div>
-							</div>
-							<div class="meta">
-								<div style="color:var(--muted)">In stock</div>
-								<div>
-									<button class="btn btn-outline add-cart" data-product="Nova Laptop Pro">Add to cart</button>
-								</div>
-							</div>
-						</article>
-		
-						<article class="card">
-							<div class="card-info">
-								<div>
-									<div class="card-name">Pulse X2 Headset</div>
-									<div class="card-specs">Noise-cancelling • Hi-Fi</div>
-								</div>
-								<div class="price">$199</div>
-							</div>
-							</div>
-							<div class="meta">
-								<div style="color:var(--muted)">Low stock</div>
-								<div>
-									<button class="btn btn-primary add-cart" data-product="Pulse X2 Headset">Add to cart</button>
-								</div>
-							</div>
-						</article>
-		
-						<article class="card" id="product-nova">
-							<div class="card-info">
-								<div>
-									<div class="card-name">Atlas Thunderbolt Dock</div>
-									<div class="card-specs">USB4 • 90W PD • Dual 4K</div>
-								</div>
-								<div class="price">$249</div>
-							</div>
-							</div>
-							<div class="meta">
-								<div style="color:var(--muted)">Ships in 1-2 days</div>
-								<div>
-									<button class="btn btn-outline add-cart" data-product="Atlas Dock">Add to cart</button>
-								</div>
-							</div>
-						</article>
-					</div>
-				</section>
-				<section class="products why-choose-section" aria-label="Why choose us">
-					<h3 class="why-choose-title">Why choose Tech Web</h3>
-					<div class="why-choose-grid">
-						<div class="why-choose-card">
-							<div class="why-choose-card-title">Trusted quality</div>
-							<div>Every product is vetted by our engineers.</div>
-						</div>
-						<div class="why-choose-card">
-							<div class="why-choose-card-title">Fast support</div>
-							<div>Expert help from real humans, 24/7.</div>
-						</div>
-						<div class="why-choose-card">
-							<div class="why-choose-card-title">Flexible returns</div>
-							<div>30‑day money back guarantee.</div>
-						</div>
-					</div>
-				</section>
-				</section>
-			</main>
-			<footer class="footer">
-				<div class="footer-content">
-					<div>© <span id="year"></span> Tech Web — All rights reserved</div>
-					<div class="footer-contact">Contact: <a href="contact.html" class="footer-link">sales@techweb.example</a></div>
 				</div>
-			</footer>
-			</footer>
-		
-			<script src="web.js"></script>
-			<script>
-				// small add-to-cart feedback without persistent cart
-					document.querySelectorAll('.add-cart').forEach(btn=>{
-						btn.addEventListener('click', function(){
-							const name = this.dataset.product || 'product';
-							const el = document.createElement('div');
-							el.className = 'cart-notification';
-							el.textContent = name + ' added to cart';
-							document.body.appendChild(el);
-							setTimeout(()=>el.remove(),1800);
-						});
-					});
+				<div class="home-right">
+					<div class="promo-card" aria-hidden="true">
+						<h3>Nova Laptop Pro</h3>
+						<p style="margin:0.4rem 0;color:rgba(11,18,32,0.7)">Thin, powerful, and built for long-term use.</p>
+						<div style="margin-top:0.8rem"><a class="btn-home btn-home-primary" href="#product-nova">Pre-order</a></div>
+					</div>
+				</div>
+			</section>
+
+			<section id="products" class="products" aria-label="Products">
+				<h2 style="margin:0 0 1rem">Featured Products</h2>
+				<div class="grid">
+					<article class="card">
+						<div class="media">Nova Laptop Pro</div>
+						<div style="display:flex;justify-content:space-between;align-items:center">
+							<div>
+								<div style="font-weight:700">Nova Laptop Pro</div>
+								<div style="color:var(--muted);font-size:0.95rem">14" OLED • 16GB • 1TB</div>
+							</div>
+							<div class="price">$1,499</div>
+						</div>
+						<div class="meta">
+							<div style="color:var(--muted)">In stock</div>
+							<div>
+								<button class="btn btn-outline add-cart" data-product="Nova Laptop Pro">Add to cart</button>
+							</div>
+						</div>
+					</article>
+
+					<article class="card">
+						<div class="media">Pulse Headset</div>
+						<div style="display:flex;justify-content:space-between;align-items:center">
+							<div>
+								<div style="font-weight:700">Pulse X2 Headset</div>
+								<div style="color:var(--muted);font-size:0.95rem">Noise-cancelling • Hi-Fi</div>
+							</div>
+							<div class="price">$199</div>
+						</div>
+						<div class="meta">
+							<div style="color:var(--muted)">Low stock</div>
+							<div>
+								<button class="btn btn-primary add-cart" data-product="Pulse X2 Headset">Add to cart</button>
+							</div>
+						</div>
+					</article>
+
+					<article class="card" id="product-nova">
+						<div class="media">Atlas Dock</div>
+						<div style="display:flex;justify-content:space-between;align-items:center">
+							<div>
+								<div style="font-weight:700">Atlas Thunderbolt Dock</div>
+								<div style="color:var(--muted);font-size:0.95rem">USB4 • 90W PD • Dual 4K</div>
+							</div>
+							<div class="price">$249</div>
+						</div>
+						<div class="meta">
+							<div style="color:var(--muted)">Ships in 1-2 days</div>
+							<div>
+								<button class="btn btn-outline add-cart" data-product="Atlas Dock">Add to cart</button>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="products" aria-label="Why choose us" style="padding-top:0">
+				<h3 style="margin-top:1.5rem">Why choose Tech Web</h3>
+				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.75rem">
+					<div style="background:transparent;padding:1rem;border-radius:10px;color:var(--muted)">
+						<div style="font-weight:800">Trusted quality</div>
+						<div>Every product is vetted by our engineers.</div>
+					</div>
+					<div style="background:transparent;padding:1rem;border-radius:10px;color:var(--muted)">
+						<div style="font-weight:800">Fast support</div>
+						<div>Expert help from real humans, 24/7.</div>
+					</div>
+					<div style="background:transparent;padding:1rem;border-radius:10px;color:var(--muted)">
+						<div style="font-weight:800">Flexible returns</div>
+						<div>30‑day money back guarantee.</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+				<div>© <span id="year"></span> Tech Web — All rights reserved</div>
+				<div style="color:var(--muted)">Contact: <a href="contact.html" style="color:var(--muted);text-decoration:underline">sales@techweb.example</a></div>
+			</div>
+		</footer>
+
+		<script src="web.js"></script>
+		<script>
+			// small add-to-cart feedback without persistent cart
+			document.addEventListener('DOMContentLoaded', function(){
+				document.querySelectorAll('.add-cart').forEach(btn=>{
+					btn.addEventListener('click', function(){
+						const name = this.dataset.product || 'product';
+						const el = document.createElement('div');
+						el.textContent = name + ' added to cart';
+						Object.assign(el.style,{position:'fixed',right:'1rem',bottom:'1rem',background:'rgba(3,7,18,0.9)',color:'#eaf4ff',padding:'0.6rem 0.9rem',borderRadius:'8px',zIndex:9999});
+						document.body.appendChild(el);
+						setTimeout(()=>el.remove(),1800);
 					});
 				});
+			});
+		</script>
+	</body>
+	</html>
 			</script>
 		</body>
 		</html>
