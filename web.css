@@ -1,0 +1,40 @@
+/* Improved CSS: clearer variables, responsive layout, accessible defaults */
+:root{
+  --bg:#0b1220;
+  --card:#0f1724;
+  --accent:#0ea5ff;
+  --text:#e6eef7;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:linear-gradient(180deg,#0b1220 0%, #071022 100%);}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.site-header{background:transparent;padding:0.5rem 0}
+.logo{font-weight:700;color:var(--text);text-decoration:none;font-size:1.125rem}
+.nav-toggle{background:transparent;border:2px solid var(--text);color:var(--text);padding:0.25rem 0.5rem;border-radius:6px;cursor:pointer}
+.primary-nav{display:none}
+.primary-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.primary-nav a{color:var(--text);text-decoration:none}
+.hero{padding:3rem 0;text-align:center}
+.hero h1{font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 0.5rem}
+.cta{display:inline-block;background:var(--accent);color:#02203a;padding:0.6rem 1rem;border-radius:8px;text-decoration:none}
+.products{padding:2rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:var(--card);padding:1rem;border-radius:8px}
+.card h3{margin:0 0 0.5rem}
+.card button{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:0.4rem 0.6rem;border-radius:6px;cursor:pointer}
+.site-footer{padding:1rem 0;border-top:1px solid rgba(255,255,255,0.04);text-align:center;margin-top:2rem}
+
+/* Larger screens: show nav */
+@media(min-width:720px){
+  .nav-toggle{display:none}
+  .primary-nav{display:block}
+}
+
+/* Nav underline indicator */
+.primary-nav a{position:relative;padding-bottom:0.35rem;display:inline-block}
+.primary-nav a::after{content:"";position:absolute;left:0;right:0;bottom:-0.22rem;height:3px;background:transparent;border-radius:3px;transform:scaleX(0);transform-origin:left;transition:transform .18s ease,background .18s ease}
+.primary-nav a:hover::after,.primary-nav a.active::after{background:var(--accent);transform:scaleX(1)}
+.primary-nav a.active{font-weight:700}
+
+/* Small screen nav show/hide handled inline; keep it hidden for accessibility */
+.primary-nav[aria-hidden="true"]{display:none}
