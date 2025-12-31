@@ -8,32 +8,28 @@
 	<link rel="stylesheet" href="about.css">
 	<link rel="stylesheet" href="contact.css">
 	<style>
-		/* Quote-specific styles (keeps things consistent with existing CSS files) */
-				.hero-quote {
-					min-height: 72vh;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					padding: 3rem 1.25rem;
-					background: linear-gradient(135deg, #0f172a 0%, #0b1220 50%, #071028 100%);
-					color: #e6eef8;
-				}
-		
-				.quote-card {
-					max-width: 960px;
-					width: 100%;
-					background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-					border: 1px solid rgba(255,255,255,0.06);
-					border-radius: 14px;
-					padding: 2.25rem;
-					box-shadow: 0 10px 30px rgba(2,6,23,0.7);
-					-webkit-backdrop-filter: blur(6px);
-					backdrop-filter: blur(6px);
-					display: grid;
-					grid-template-columns: 1fr 220px;
-					gap: 1.5rem;
-				}
-			</style>
+		/* Home-specific hero and accent overrides (distinct from shop) */
+		.home-hero{
+			min-height:72vh;display:flex;align-items:center;padding:4rem 1.25rem;gap:2rem;position:relative;overflow:hidden;
+			background:linear-gradient(120deg,#ff7a59 0%, #ffb86b 40%, rgba(255,255,255,0.02) 100%);
+			color:#081225;
+		}
+		.home-left{max-width:720px}
+		.home-left h1{font-size:clamp(1.8rem,4.5vw,3.2rem);margin:0 0 0.6rem;color:#0b1220}
+		.home-left p{color:rgba(11,18,32,0.75);margin:0 0 1rem}
+		.home-cta{display:flex;gap:0.75rem}
+		.btn-home{padding:0.75rem 1.1rem;border-radius:12px;font-weight:800;text-decoration:none;display:inline-block}
+		.btn-home-primary{background:linear-gradient(90deg,#ff4d4d,#ff7a59);color:white;border:none}
+		.btn-home-ghost{background:transparent;border:2px solid rgba(11,18,32,0.06);color:rgba(11,18,32,0.9)}
+
+		.home-right{flex:1;display:flex;align-items:center;justify-content:center}
+		.promo-card{width:320px;height:220px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,0.6),rgba(255,255,255,0.35));box-shadow:0 18px 40px rgba(3,7,18,0.12);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:1.25rem}
+		.promo-card h3{margin:0;color:#0b1220}
+		.features{display:flex;gap:1rem;margin-top:1.25rem}
+		.feature{background:rgba(255,255,255,0.12);padding:0.65rem 0.9rem;border-radius:10px;color:#fff}
+
+		@media(max-width:980px){.home-hero{flex-direction:column;text-align:center}.home-right{order:-1}.home-left{max-width:100%}}
+	</style>
 		</head>
 		<body>
 			<header>
@@ -41,8 +37,8 @@
 				<nav>
 					<button class="nav-toggle" aria-expanded="false">Menu</button>
 					<div id="primary-navigation" class="primary-nav">
-						<a href="index.html" data-page="home">Home</a>
-						<a href="index.html#products" data-page="products">Shop</a>
+						<a href="index.html" class="active" data-page="home">Home</a>
+						<a href="shop.html" data-page="products">Shop</a>
 						<a href="about.html" data-page="about">About</a>
 						<a href="contact.html" data-page="contact">Contact</a>
 					</div>
@@ -50,28 +46,27 @@
 			</header>
 		
 			<main>
-				<section class="hero" aria-label="Store hero">
-					<div class="hero-left">
-						<h1>Hardware & Software to build the future</h1>
-						<p>Premium tools for creators, teams and builders. Fast shipping, expert support, and a 30‑day
-						satisfaction guarantee.</p>
-						<div class="hero-cta">
-							<a class="btn btn-primary" href="#products">Shop Now</a>
-							<a class="btn btn-outline" href="contact.html">Talk to Sales</a>
+				<section class="home-hero" aria-label="Welcome">
+					<div class="home-left">
+						<h1>Tools that help you ship better, faster.</h1>
+						<p>Design-grade hardware and ergonomic software for makers, teams and small studios. Beautifully engineered, responsibly sourced.</p>
+						<div class="home-cta">
+							<a class="btn-home btn-home-primary" href="shop.html">Browse products</a>
+							<a class="btn-home btn-home-ghost" href="about.html">Learn our story</a>
 						</div>
-						<div style="margin-top:1rem;color:var(--muted);font-size:0.95rem">Free returns • 1 year warranty • Volume discounts</div>
+						<div class="features">
+							<div class="feature">Free 30‑day returns</div>
+							<div class="feature">Global shipping</div>
+							<div class="feature">1yr warranty</div>
+						</div>
 					</div>
-					<aside class="hero-right" aria-hidden="false">
-						<div class="hero-feature">
-							<div style="font-weight:800">Featured — Nova Laptop Pro</div>
-							<div style="color:var(--muted)">Lightweight 14" workstation, M-series equivalent performance, 18hr battery.</div>
-							<div style="display:flex;gap:0.5rem;margin-top:0.6rem">
-								<a class="btn btn-primary" href="#product-nova">Buy Nova</a>
-								<a class="btn btn-outline" href="#products">View more</a>
-							</div>
-							<div style="margin-top:0.75rem;color:var(--muted);font-size:0.95rem">Ships worldwide • 2‑day fulfillment</div>
+					<div class="home-right">
+						<div class="promo-card" aria-hidden="true">
+							<h3>Nova Laptop Pro</h3>
+							<p style="margin:0.4rem 0;color:rgba(11,18,32,0.7)">Thin, powerful, and built for long-term use.</p>
+							<div style="margin-top:0.8rem"><a class="btn-home btn-home-primary" href="#product-nova">Pre-order</a></div>
 						</div>
-					</aside>
+					</div>
 				</section>
 		
 				<section id="products" class="products" aria-label="Products">
