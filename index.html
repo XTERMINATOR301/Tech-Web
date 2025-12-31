@@ -31,17 +31,21 @@
 
 		@media(max-width:980px){.home-hero{flex-direction:column;text-align:center}.home-right{order:-1}.home-left{max-width:100%}}
 
-		/* Home-page header/navbar tweaks: spacing + black text */
-		header .brand, header .primary-nav a, header .nav-toggle{color:#081225}
-		header .primary-nav{display:flex;align-items:center;gap:0.5rem}
-		header .primary-nav a{padding:0.25rem 0.45rem}
-		/* larger separators after Home and About for clearer grouping */
+		/* Home header: dark theme, white brand text, centered nav like shop */
+		header{display:flex;align-items:center;padding:0.6rem 0}
+		.logo{display:flex;align-items:center;color:var(--text);text-decoration:none}
+		.logo-img{height:40px;border-radius:8px;margin-right:0.5rem}
+		.brand{color:var(--text);font-weight:800;margin-left:0.5rem;font-size:1.05rem}
+		header .primary-nav{display:flex;align-items:center;gap:0.5rem;margin:0 auto}
+		header .primary-nav a{color:var(--text);padding:0.25rem 0.45rem;text-decoration:none}
+		/* larger separators after Home and Shop for clearer grouping */
 		header .primary-nav a[data-page="home"], header .primary-nav a[data-page="products"]{margin-right:1.6rem}
 	</style>
 		</head>
 		<body>
 			<header>
-				<a class="brand" href="index.html"><img src="logo.svg" alt="Tech Web logo" class="logo-img">Tech Web</a>
+				<a class="logo" href="index.html"><img src="logo.svg" alt="Tech Web logo" class="logo-img"></a>
+				<span class="brand">Tech Web</span>
 				<nav>
 					<button class="nav-toggle" aria-expanded="false">Menu</button>
 					<div id="primary-navigation" class="primary-nav">
