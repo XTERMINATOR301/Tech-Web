@@ -36,7 +36,11 @@ html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Robo
 /* Larger screens: show nav */
 @media(min-width:720px){
   .nav-toggle{display:none}
-  .primary-nav{display:block}
+  /* show horizontal nav and add consistent spacing */
+  .primary-nav{display:flex;align-items:center;gap:0.5rem}
+  /* make the main separators slightly larger so items like Home / Shop and About / Contact feel grouped */
+  .primary-nav a{padding:0.25rem 0.45rem}
+  .primary-nav a:nth-child(1), .primary-nav a:nth-child(2){margin-right:1.25rem}
 }
 
 /* Nav underline indicator */
