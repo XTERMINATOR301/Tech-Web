@@ -11,13 +11,14 @@
   <style>
     /* Page-specific header tweaks: black text, nav aligned to the right, non-clickable site name */
     header .brand, header .primary-nav a, header .nav-toggle{color:#081225}
-    header .container{display:flex;align-items:center}
+    /* make header container use space-between so nav sits at the right edge */
+    header .container{display:flex;align-items:center;justify-content:space-between}
     /* header background and layout to match the white top bar in the design */
     header.site-header{background:#ffffff;padding:0.6rem 0;border-bottom:1px solid rgba(3,7,18,0.06)}
     header .logo-img{height:40px;border-radius:8px}
     header .brand{font-weight:700;margin-left:8px}
-    /* push nav to the right of the header */
-    header .primary-nav{display:flex;align-items:center;gap:0.75rem;margin-left:auto}
+    /* ensure nav stays at the far right */
+    header .primary-nav{display:flex;align-items:center;gap:0.75rem}
     header .primary-nav a{padding:0.25rem 0.45rem;color:#081225}
     header .primary-nav a.active{font-weight:700}
   </style>
