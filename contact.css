@@ -1,9 +1,25 @@
 /* Contact page specific styles */
 :root{--bg:#fff;--text:#071022;--muted:#6b7280;--accent:#0ea5ff}
+/* Navbar palette for contact page */
+:root{--nav-grad-start:#7c3aed;--nav-grad-end:#06b6d4;--nav-text:#ffffff}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
 .container{max-width:900px;margin:0 auto;padding:1.25rem}
 .site-header{padding:1rem 0;border-bottom:1px solid rgba(7,16,34,0.04)}
+/* Gradient navbar that spans full width */
+.site-header{
+  background: linear-gradient(90deg,var(--nav-grad-start),var(--nav-grad-end));
+  color:var(--nav-text);
+  box-shadow: 0 6px 18px rgba(6,24,46,0.12);
+}
+.site-header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{color:var(--nav-text)}
+.primary-nav ul{display:flex;gap:1rem;align-items:center;padding:0;margin:0;list-style:none}
+.primary-nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:0.35rem 0.5rem;border-radius:6px}
+.primary-nav a.active{background:rgba(255,255,255,0.08);font-weight:700}
+
+/* Make the page content sit slightly elevated from the navbar */
+main{margin-top:0.5rem}
 article{padding:1.25rem}
 form{background:#f8fafc;padding:1rem;border-radius:8px;border:1px solid rgba(7,16,34,0.04)}
 label{display:block;margin-bottom:0.25rem;font-weight:600}

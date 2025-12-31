@@ -14,6 +14,10 @@
   --bg-gradient-start: #f8fafc;
   --bg-gradient-mid: #eef2ff;
   --bg-gradient-end: #f3f8ff;
+  /* Navbar palette for about page (matches Contact) */
+  --nav-grad-start:#7c3aed;
+  --nav-grad-end:#06b6d4;
+  --nav-text:#ffffff;
 }
 *{box-sizing:border-box}
 /* Ensure html background is consistent with body to avoid mixed backgrounds */
@@ -47,7 +51,21 @@ a{color:var(--accent-2)}
 /* Make cards/panels softly tinted white to harmonize with page */
 article{background:var(--card)}
 .container{max-width:900px;margin:0 auto;padding:1.25rem}
-.site-header{padding:1rem 0;border-bottom:1px solid rgba(11,18,32,0.06);background:transparent}
+.site-header{padding:1rem 0;border-bottom:1px solid rgba(11,18,32,0.06);}
+/* Gradient navbar for About page */
+.site-header{
+  background: linear-gradient(90deg,var(--nav-grad-start),var(--nav-grad-end));
+  color:var(--nav-text);
+  box-shadow: 0 6px 18px rgba(6,24,46,0.08);
+}
+.site-header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{color:var(--nav-text)}
+.primary-nav ul{display:flex;gap:1rem;align-items:center;padding:0;margin:0;list-style:none}
+.primary-nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:0.35rem 0.5rem;border-radius:6px}
+.primary-nav a.active{background:rgba(255,255,255,0.08);font-weight:700}
+
+/* Lift content slightly from the header */
+main{margin-top:0.5rem}
 .logo{font-weight:700;color:var(--text);text-decoration:none}
 .primary-nav ul{display:flex;gap:1rem;align-items:center;padding:0;margin:0;list-style:none}
 .primary-nav a{color:var(--text);text-decoration:none;padding:0.25rem 0;border-radius:4px}
