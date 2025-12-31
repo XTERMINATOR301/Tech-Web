@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="contact.css">
   <link rel="icon" href="logo.svg" />
   <style>
-    /* Page-specific header tweaks: black text, centered nav, non-clickable site name */
+    /* Page-specific header tweaks: black text, nav aligned to the right, non-clickable site name */
     header .brand, header .primary-nav a, header .nav-toggle{color:#081225}
     header .container{display:flex;align-items:center}
-    header .primary-nav{display:flex;align-items:center;gap:0.75rem;margin:0 auto}
+    /* push nav to the right of the header */
+    header .primary-nav{display:flex;align-items:center;gap:0.75rem;margin-left:auto}
     header .primary-nav a{padding:0.25rem 0.45rem}
   </style>
   </head>
